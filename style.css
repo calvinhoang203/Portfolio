@@ -59,4 +59,16 @@ section {
     gap: 20px;
 }
 
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
 
+/* Footer */
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
