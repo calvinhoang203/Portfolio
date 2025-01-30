@@ -7,3 +7,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+// Hover effect for skills
+document.querySelectorAll('.skill').forEach(skill => {
+    skill.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.1)';
+    });
+    skill.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+});
