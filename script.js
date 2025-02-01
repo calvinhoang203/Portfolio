@@ -17,3 +17,4 @@ document.querySelectorAll('.skill').forEach(skill => {
         this.style.transform = 'scale(1)';
     });
 });
+
