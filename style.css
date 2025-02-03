@@ -9,7 +9,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: url('background_image1.jpg') no-repeat center center/cover;
+    background: url('images/background_image1.jpg') no-repeat center center/cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,10 @@ section {
     text-align: center;
     padding: 150px 10%;
     color: white;
-    background: rgba(0, 0, 0, 0.6);
+    background: url('gif/home_background.gif') no-repeat center center/cover;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 10px;
     width: 100%;
     max-width: 1200px;
     border-radius: 10px;
