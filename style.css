@@ -11,6 +11,9 @@ body {
     color: #333;
     background: url('background_image1.jpg') no-repeat center center/cover;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Header Styling */
@@ -21,6 +24,8 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
+    display: flex;
+    justify-content: center;
 }
 
 header nav ul {
@@ -46,6 +51,8 @@ header nav ul li a:hover {
 section {
     padding: 80px 10%;
     text-align: center;
+    max-width: 1200px;
+    width: 100%;
 }
 
 /* Home Section */
@@ -54,10 +61,13 @@ section {
     padding: 150px 10%;
     color: white;
     background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 10px;
 }
 
 #home h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
 }
 
@@ -74,6 +84,7 @@ section {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     margin: 50px auto;
     max-width: 900px;
+    text-align: center;
 }
 
 /* Skills Section */
@@ -83,6 +94,7 @@ section {
     justify-content: center;
     gap: 15px;
     margin-top: 20px;
+    max-width: 900px;
 }
 
 .skill {
@@ -158,30 +170,29 @@ section {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     margin: 50px auto;
     max-width: 600px;
+    text-align: center;
 }
 
-#contact input,
-#contact textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
 }
 
-#contact button {
-    margin-top: 10px;
-    padding: 12px 20px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+.contact-icons a {
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
 }
 
-#contact button:hover {
-    background: #0056b3;
+.contact-icons a:hover {
+    transform: scale(1.2);
+}
+
+.contact-icons img {
+    width: 40px;
+    height: 40px;
 }
 
 /* Footer */
@@ -191,4 +202,5 @@ footer {
     text-align: center;
     padding: 15px 0;
     margin-top: 50px;
+    width: 100%;
 }
