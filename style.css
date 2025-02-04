@@ -9,7 +9,6 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: url('assets/images/background_image1.jpg') no-repeat center center/cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -66,14 +65,9 @@ section {
     border-radius: 10px;
 }
 
-#home h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
-}
-
-#home p {
-    font-size: 1.2rem;
-    margin-top: 10px;
+#home h1, #home p {
+    color: #FFFFFF; /* Change to one of the colors above */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds readability */
 }
 
 /* About Section */
