@@ -9,7 +9,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: url('images/background_image1.jpg') no-repeat center center/cover;
+    background: url('assets/images/background_image1.jpg') no-repeat center center/cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,7 @@ section {
     text-align: center;
     padding: 150px 10%;
     color: black;
-    background: url('gif/home_background.gif') no-repeat center center/cover;
+    background: url('assets/gif/home_background.gif') no-repeat center center/cover;
     width: 100%;
     max-width: 1200px;
     border-radius: 10px;
@@ -84,8 +84,23 @@ section {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     margin: 50px auto;
     max-width: 900px;
-    text-align: left;
+    text-align: center;
 }
+
+#about h2 {
+    text-align: center;  /* Centers the title */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#about p {
+    text-align: justify; /* Ensures the text is evenly spread */
+    font-size: 1.2rem;
+    line-height: 1.8; /* Increases readability */
+    max-width: 800px;
+    margin: 0 auto 15px auto; /* Keeps text centered within container */
+}
+
 
 /* Skills Section */
 .skills-container {
