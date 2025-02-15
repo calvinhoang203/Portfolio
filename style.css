@@ -38,13 +38,15 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #60a5fa;
-}
+
 
 /* Home Section */
 #home {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    /* Replace the gradient with gif background */
+    background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(59, 130, 246, 0.9)), url('assets/gif/home_background.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -52,24 +54,26 @@ nav ul li a:hover {
     text-align: center;
     padding: 6rem 2rem;
     color: white;
+    position: relative;
+}
+
+/* Optional: Add animation to smooth out any gif transitions */
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* Adds a slight dark overlay for better text readability */
+    z-index: 1;
 }
 
 .intro {
     max-width: 800px;
     margin: 0 auto;
-}
-
-.intro h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-}
-
-.intro p {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
+    position: relative;
+    z-index: 2; /* Ensures text stays above the overlay */
 }
 
 /* About Section */
