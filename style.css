@@ -56,6 +56,16 @@ nav ul li a {
     width: 24px;
     height: 24px;
     filter: invert(1); /* Makes the icon white */
+    transition: filter 0.3s ease;
+}
+
+/* Theme transition */
+.theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-transition * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Home Section */
@@ -349,7 +359,7 @@ nav ul li a {
 /* Dark Theme Styles */
 [data-theme="dark"] {
     background-color: #1a1a1a;
-    color: #ffffff;
+    color: #e0e0e0; /* Lighten text color for better readability */
 }
 
 [data-theme="dark"] #about,
@@ -365,9 +375,22 @@ nav ul li a {
 [data-theme="dark"] .skill,
 [data-theme="dark"] .contact-icons a {
     background: #2d2d2d;
-    color: #ffffff;
+    color: #e0e0e0; /* Lighten text color for better readability */
 }
 
 [data-theme="dark"] .timeline div {
     background: #2d2d2d;
+    color: #e0e0e0; /* Lighten text color for better readability */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+[data-theme="dark"] nav ul li a {
+    color: #e0e0e0; /* Lighten text color for better readability */
 }
