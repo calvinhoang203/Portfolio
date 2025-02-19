@@ -21,6 +21,9 @@ body {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav ul {
@@ -38,7 +41,22 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
+/* Theme Switch Button */
+.theme-switch {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.theme-switch img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Makes the icon white */
+}
 
 /* Home Section */
 #home {
@@ -198,6 +216,12 @@ nav ul li a {
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     border-left: 4px solid #2563eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline div:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .timeline h3 {
@@ -247,6 +271,7 @@ nav ul li a {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
+    position: relative;
 }
 
 .project:hover {
@@ -257,12 +282,11 @@ nav ul li a {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.project p {
-    padding: 1rem;
-    font-weight: 500;
-    color: #1e293b;
+.project:hover img {
+    transform: scale(1.05);
 }
 
 /* Contact Section */
@@ -320,4 +344,30 @@ nav ul li a {
     .timeline div {
         padding: 1.5rem;
     }
+}
+
+/* Dark Theme Styles */
+[data-theme="dark"] {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+[data-theme="dark"] #about,
+[data-theme="dark"] #projects {
+    background: #2d2d2d;
+}
+
+[data-theme="dark"] #skills,
+[data-theme="dark"] #contact {
+    background: #1a1a1a;
+}
+
+[data-theme="dark"] .skill,
+[data-theme="dark"] .contact-icons a {
+    background: #2d2d2d;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .timeline div {
+    background: #2d2d2d;
 }
