@@ -37,9 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Improved theme switcher with smooth transitions
+document.addEventListener('DOMContentLoaded', () => {
+    // Apply saved theme immediately on page load
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+});
+
+// Simplified theme switch without transitions
 const themeSwitch = document.querySelector('.theme-switch');
-const themeIcon = document.getElementById('theme-icon');
-const root = document.documentElement;
+themeSwitch.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update icon without transition
+    const themeIcon = document.getElementById('theme-icon');
+    themeIcon.src = `assets/icons/${newTheme === 'light' ? 'moon' : 'sun'}.svg`;
+});
 
 // Theme text content with fade transitions
 const themeContent = {
@@ -58,44 +73,6 @@ const themeContent = {
         passion: '📊 Passionate about data-driven solutions and innovation.'
     }
 };
-
-// Initialize theme with fade effect
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    applyThemeWithTransition(savedTheme);
-});
-
-// Smooth theme toggle
-themeSwitch.addEventListener('click', () => {
-    const currentTheme = root.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyThemeWithTransition(newTheme);
-});
-
-// Apply theme with smooth transitions
-function applyThemeWithTransition(theme) {
-    // Fade out
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.3s ease';
-    
-    setTimeout(() => {
-        applyTheme(theme);
-        // Fade in
-        document.body.style.opacity = '1';
-    }, 300);
-}
-
-// Update theme icon with spring animation
-function updateThemeIcon(theme) {
-    themeIcon.style.transform = 'rotate(180deg)';
-    themeIcon.style.opacity = '0';
-    
-    setTimeout(() => {
-        themeIcon.src = `assets/icons/${theme === 'light' ? 'moon' : 'sun'}.svg`;
-        themeIcon.style.transform = 'rotate(0deg)';
-        themeIcon.style.opacity = '1';
-    }, 150);
-}
 
 // Update content with staggered fade
 function updateContent(theme) {
