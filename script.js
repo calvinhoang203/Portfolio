@@ -10,20 +10,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Enhanced hover effect for skills with spring animation
-document.querySelectorAll('.skill').forEach(skill => {
-    skill.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.03)';
-        this.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
-        this.style.cursor = 'pointer';
-    });
-    skill.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-        this.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-    });
-});
+
 
 // Fade in content on load
 document.addEventListener('DOMContentLoaded', () => {
