@@ -65,24 +65,6 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-/* Theme Switch Button */
-.theme-switch {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.theme-switch img {
-    width: 24px;
-    height: 24px;
-    filter: invert(1); /* Makes the icon white */
-    transition: filter 0.3s ease;
-}
-
 /* Home Section */
 #home {
     /* Replace the gradient with gif background */
@@ -129,7 +111,7 @@ nav ul li a {
 
 #about h2 {
     font-size: 2.5rem;
-    color: #1e293b;
+    color: #1a1a1a;
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -151,7 +133,7 @@ nav ul li a {
 
 #skills h2 {
     font-size: 2.5rem;
-    color: #1e293b;
+    color: #1a1a1a;
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -170,7 +152,7 @@ nav ul li a {
     border-radius: 8px;
     text-align: center;
     font-weight: 500;
-    color: #1e293b;
+    color: #1a1a1a;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -191,7 +173,7 @@ nav ul li a {
 
 #education h2 {
     font-size: 2.5rem;
-    color: #1e293b;
+    color: #1a1a1a;
     margin-bottom: 3rem;
 }
 
@@ -224,7 +206,7 @@ nav ul li a {
 
 #resume h2 {
     font-size: 2.5rem;
-    color: #1e293b;
+    color: #1a1a1a;
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -277,7 +259,7 @@ nav ul li a {
 
 #projects h2 {
     font-size: 2.5rem;
-    color: #1e293b;
+    color: #1a1a1a;
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -323,7 +305,7 @@ nav ul li a {
 
 #contact h2 {
     font-size: 2.5rem;
-    color: #1e293b;
+    color: #1a1a1a;
     margin-bottom: 3rem;
 }
 

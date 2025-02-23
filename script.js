@@ -25,81 +25,23 @@ document.querySelectorAll('.skill').forEach(skill => {
     });
 });
 
-// Fade in content on load
+// Fade in content on scroll using Intersection Observer
 document.addEventListener('DOMContentLoaded', () => {
-    const content = document.querySelectorAll('.fade-in');
-    content.forEach((element, index) => {
-        setTimeout(() => {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, 100 * index);
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+        threshold: 0.1,
+    };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        });
+    }, appearOptions);
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
     });
 });
-
-// Improved theme switcher with smooth transitions
-document.addEventListener('DOMContentLoaded', () => {
-    // Apply saved theme immediately on page load
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-});
-
-// Simplified theme switch without transitions (modified to include fade transition)
-const themeSwitch = document.querySelector('.theme-switch');
-themeSwitch.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Update icon with a fade transition
-    const themeIcon = document.getElementById('theme-icon');
-    themeIcon.style.opacity = '0';
-    setTimeout(() => {
-        themeIcon.src = `assets/icons/${newTheme === 'light' ? 'moon' : 'sun'}.svg`;
-        themeIcon.style.opacity = '1';
-    }, 300);
-    
-    // Update theme text content with fade transitions
-    updateContent(newTheme);
-});
-
-// Theme text content with fade transitions
-const themeContent = {
-    light: {
-        aboutTitle: 'About Me',
-        skillsTitle: 'Skills & Expertise',
-        greeting: '👋 Hi! I\'m Hieu, but you can call me Calvin.',
-        description: '🏫 Throughout my studies at UC Davis, I\'ve developed a strong foundation in data science and machine learning.',
-        passion: '🚩 I\'m passionate about leveraging data to drive real-world solutions.'
-    },
-    dark: {
-        aboutTitle: 'About Me',
-        skillsTitle: 'Skills & Expertise',
-        greeting: '🌙 Hi! I\'m Hieu (Calvin)',
-        description: '💻 Data Science enthusiast with a strong foundation in machine learning.',
-        passion: '📊 Passionate about data-driven solutions and innovation.'
-    }
-};
-
-// Update content with staggered fade
-function updateContent(theme) {
-    const content = themeContent[theme];
-    const elements = [
-        { el: document.querySelector('#about h2'), text: content.aboutTitle },
-        { el: document.querySelector('#skills h2'), text: content.skillsTitle },
-        ...document.querySelectorAll('#about p').entries()
-    ];
-
-    elements.forEach((item, index) => {
-        setTimeout(() => {
-            item.el.style.opacity = '0';
-            setTimeout(() => {
-                item.el.textContent = content[Object.keys(content)[index]];
-                item.el.style.opacity = '1';
-            }, 200);
-        }, index * 100);
-    });
-}
 
 // Enhanced skill visualization with animations
 const skillLevels = {
@@ -109,7 +51,6 @@ const skillLevels = {
     // ... rest of the skills
 };
 
-// Apply animated skill visualization
 document.querySelectorAll('.skill').forEach((skill, index) => {
     const skillName = skill.textContent;
     const level = skillLevels[skillName];
