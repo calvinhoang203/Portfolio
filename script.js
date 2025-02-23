@@ -28,9 +28,7 @@ document.querySelectorAll('.skill').forEach(skill => {
 // Fade in content on scroll using Intersection Observer
 document.addEventListener('DOMContentLoaded', () => {
     const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-        threshold: 0.1,
-    };
+    const appearOptions = { threshold: 0.1 };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
