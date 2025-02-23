@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('data-theme', savedTheme);
 });
 
-// Simplified theme switch without transitions
+// Simplified theme switch without transitions (modified to include fade transition)
 const themeSwitch = document.querySelector('.theme-switch');
 themeSwitch.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -51,9 +51,16 @@ themeSwitch.addEventListener('click', () => {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     
-    // Update icon without transition
+    // Update icon with a fade transition
     const themeIcon = document.getElementById('theme-icon');
-    themeIcon.src = `assets/icons/${newTheme === 'light' ? 'moon' : 'sun'}.svg`;
+    themeIcon.style.opacity = '0';
+    setTimeout(() => {
+        themeIcon.src = `assets/icons/${newTheme === 'light' ? 'moon' : 'sun'}.svg`;
+        themeIcon.style.opacity = '1';
+    }, 300);
+    
+    // Update theme text content with fade transitions
+    updateContent(newTheme);
 });
 
 // Theme text content with fade transitions

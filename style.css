@@ -31,6 +31,11 @@ html {
     background-color: var(--bg-primary);
 }
 
+/* Smooth theme transition for background and text colors */
+body, #navbar, section {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 /* Navigation Bar */
 #navbar {
     background-color: #1e293b;
@@ -364,4 +369,34 @@ nav ul li a {
     .timeline div {
         padding: 1.5rem;
     }
+}
+
+/* New: Fade-in transitions for content */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* New: Enhanced Projects Section for clickable project cards */
+.project a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-info {
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.project-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
 }
