@@ -46,7 +46,7 @@ const skillLevels = {
     'Data Science': 'Advanced',
     'Machine Learning': 'Intermediate',
     'Python': 'Advanced',
-    // ... rest of the skills
+    // ... rest of the skills if needed
 };
 
 document.querySelectorAll('.skill').forEach((skill, index) => {
