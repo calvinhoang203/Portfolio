@@ -31,7 +31,7 @@ html {
     background-color: var(--bg-primary);
 }
 
-/* Smooth theme transition for background and text colors */
+/* Smooth transitions */
 body, #navbar, section {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -44,15 +44,11 @@ body, #navbar, section {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 nav ul {
     display: flex;
-    justify-content: flex-start;
     list-style: none;
     gap: 2rem;
 }
@@ -65,13 +61,15 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
+nav ul li a:hover {
+    color: #cbd5e1;
+}
+
 /* Home Section */
 #home {
-    /* Replace the gradient with gif background */
-    background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(59, 130, 246, 0.9)), url('assets/gif/home_background.gif');
+    background: linear-gradient(rgba(37,99,235,0.9), rgba(59,130,246,0.9)), url('assets/gif/home_background.gif');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -85,11 +83,8 @@ nav ul li a {
 #home::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.2);
     z-index: 1;
 }
 
@@ -106,22 +101,21 @@ nav ul li a {
     background: var(--bg-secondary);
     max-width: 1200px;
     margin: 0 auto;
+    text-align: center;
 }
 
 #about h2 {
     font-size: 2.5rem;
-    color: #1a1a1a;
     margin-bottom: 2rem;
-    text-align: center;
 }
 
 #about p {
     font-size: 1.1rem;
-    color: var(--text-secondary);
     margin-bottom: 1.5rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    color: var(--text-secondary);
 }
 
 /* Skills Section */
@@ -132,14 +126,13 @@ nav ul li a {
 
 #skills h2 {
     font-size: 2.5rem;
-    color: #1a1a1a;
     margin-bottom: 3rem;
     text-align: center;
 }
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -151,14 +144,14 @@ nav ul li a {
     border-radius: 8px;
     text-align: center;
     font-weight: 500;
-    color: #1a1a1a;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     background: linear-gradient(135deg, #2563eb, #3b82f6);
     color: white;
 }
@@ -172,7 +165,6 @@ nav ul li a {
 
 #education h2 {
     font-size: 2.5rem;
-    color: #1a1a1a;
     margin-bottom: 3rem;
 }
 
@@ -182,7 +174,7 @@ nav ul li a {
     padding: 2rem;
     background: #f8fafc;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 #education p {
@@ -205,7 +197,6 @@ nav ul li a {
 
 #resume h2 {
     font-size: 2.5rem;
-    color: #1a1a1a;
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -220,14 +211,14 @@ nav ul li a {
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     border-left: 4px solid #2563eb;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline div:hover {
     transform: translateX(10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 .timeline h3 {
@@ -236,31 +227,24 @@ nav ul li a {
     margin-bottom: 1rem;
 }
 
-.timeline p {
+.timeline p, .timeline ul {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
 }
 
 .timeline ul {
     list-style-position: inside;
-    color: var(--text-secondary);
-}
-
-.timeline li {
-    margin-bottom: 0.5rem;
 }
 
 /* Projects Section */
 #projects {
     padding: 6rem 2rem;
     background: var(--bg-secondary);
+    text-align: center;
 }
 
 #projects h2 {
     font-size: 2.5rem;
-    color: #1a1a1a;
     margin-bottom: 3rem;
-    text-align: center;
 }
 
 .projects-grid {
@@ -271,28 +255,51 @@ nav ul li a {
     margin: 0 auto;
 }
 
-.project {
-    background: #f8fafc;
+.project a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* New project card styles */
+.project-content {
+    padding: 1.5rem;
+    background: #ffffff;
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    position: relative;
 }
-
-.project:hover {
+.project-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+.project-timeline {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+.project-description {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+.project-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.project-skills span {
+    background: #e2e8f0;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+.project:hover .project-content {
     transform: translateY(-5px);
-}
-
-.project img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project:hover img {
-    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
 /* Contact Section */
@@ -304,7 +311,6 @@ nav ul li a {
 
 #contact h2 {
     font-size: 2.5rem;
-    color: #1a1a1a;
     margin-bottom: 3rem;
 }
 
@@ -338,46 +344,24 @@ nav ul li a {
         align-items: center;
         gap: 1rem;
     }
-
     .intro h1 {
         font-size: 2.5rem;
     }
-
     .skills-container {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
-
     .timeline div {
         padding: 1.5rem;
     }
 }
 
-/* Fade-in transitions for content */
+/* Fade-in transitions */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
-
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Enhanced Projects Section for clickable project cards */
-.project a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
-
-.project-info {
-    padding: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.project-info h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    text-align: center;
 }
