@@ -82,7 +82,6 @@ nav ul li a {
     position: relative;
 }
 
-/* Optional: Add animation to smooth out any gif transitions */
 #home::before {
     content: '';
     position: absolute;
@@ -353,7 +352,7 @@ nav ul li a {
     }
 }
 
-/* New: Fade-in transitions for content */
+/* Fade-in transitions for content */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -365,7 +364,7 @@ nav ul li a {
     transform: translateY(0);
 }
 
-/* New: Enhanced Projects Section for clickable project cards */
+/* Enhanced Projects Section for clickable project cards */
 .project a {
     display: block;
     text-decoration: none;
