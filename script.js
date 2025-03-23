@@ -39,36 +39,51 @@ document.addEventListener('DOMContentLoaded', () => {
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
-});
-
-// Enhanced skill visualization with animations
-const skillLevels = {
-  'Data Science': 'Advanced',
-  'Machine Learning': 'Intermediate',
-  'Python': 'Advanced'
-  // ... add more if needed
-};
-
-document.querySelectorAll('.skill').forEach((skill, index) => {
-  const skillName = skill.textContent;
-  const level = skillLevels[skillName];
-  const levelPercentage = {
-    'Beginner': '33%',
-    'Intermediate': '66%',
-    'Advanced': '100%'
-  }[level];
   
-  setTimeout(() => {
-    skill.innerHTML = `
-      <div class="skill-name">${skillName}</div>
-      <div class="skill-level">${level}</div>
-      <div class="skill-bar">
-          <div class="skill-progress" style="width: 0%"></div>
-      </div>
-    `;
-    // Animate progress bar
-    requestAnimationFrame(() => {
-      skill.querySelector('.skill-progress').style.width = levelPercentage;
+  // Draw a sample bar chart on the Amazon Sales Analysis project canvas
+  const amazonChart = document.getElementById('amazonChart');
+  if (amazonChart) {
+    const ctx = amazonChart.getContext('2d');
+    const data = [40, 60, 80, 50, 70]; // sample data values
+    const barWidth = 40;
+    const gap = 20;
+    data.forEach((value, index) => {
+      const x = index * (barWidth + gap);
+      const barHeight = value;
+      ctx.fillStyle = '#2563eb';
+      ctx.fillRect(x, amazonChart.height - barHeight, barWidth, barHeight);
     });
-  }, index * 100);
+  }
+  
+  // Additional code for enhanced skill visualization (if needed)
+  const skillLevels = {
+    'Data Science': 'Advanced',
+    'Machine Learning': 'Intermediate',
+    'Python': 'Advanced'
+    // ... add more if needed
+  };
+  
+  document.querySelectorAll('.skill').forEach((skill, index) => {
+    const skillName = skill.textContent;
+    const level = skillLevels[skillName];
+    const levelPercentage = {
+      'Beginner': '33%',
+      'Intermediate': '66%',
+      'Advanced': '100%'
+    }[level];
+    
+    setTimeout(() => {
+      skill.innerHTML = `
+        <div class="skill-name">${skillName}</div>
+        <div class="skill-level">${level}</div>
+        <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%"></div>
+        </div>
+      `;
+      // Animate progress bar
+      requestAnimationFrame(() => {
+        skill.querySelector('.skill-progress').style.width = levelPercentage;
+      });
+    }, index * 100);
+  });
 });

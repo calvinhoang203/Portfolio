@@ -257,7 +257,6 @@ nav ul li a:hover {
     margin: 0 auto;
 }
 
-/* Project card */
 .project a {
     text-decoration: none;
     color: inherit;
@@ -309,6 +308,17 @@ nav ul li a:hover {
     font-size: 0.8rem;
 }
 
+/* Visualization block in project cards */
+.project-visualization {
+  margin-top: 1rem;
+  text-align: center;
+}
+.project-visualization canvas {
+  max-width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
 .project:hover .project-content {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
@@ -324,6 +334,12 @@ nav ul li a:hover {
 #contact h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
+}
+
+.contact-message {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
 }
 
 .contact-icons {
