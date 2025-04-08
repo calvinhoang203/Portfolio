@@ -40,20 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     appearOnScroll.observe(fader);
   });
   
-  // Draw a sample bar chart on the Amazon Sales Analysis project canvas
-  const amazonChart = document.getElementById('amazonChart');
-  if (amazonChart) {
-    const ctx = amazonChart.getContext('2d');
-    const data = [40, 60, 80, 50, 70]; // sample data values
-    const barWidth = 40;
-    const gap = 20;
-    data.forEach((value, index) => {
-      const x = index * (barWidth + gap);
-      const barHeight = value;
-      ctx.fillStyle = '#2563eb';
-      ctx.fillRect(x, amazonChart.height - barHeight, barWidth, barHeight);
-    });
-  }
+
   
   // Additional code for enhanced skill visualization (if needed)
   const skillLevels = {
