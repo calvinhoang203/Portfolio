@@ -97,7 +97,7 @@ nav ul li a:hover {
 
 /* Home Section */
 #home {
-    background: linear-gradient(rgba(37,99,235,0.9), rgba(59,130,246,0.9)), url('assets/gif/home_background.gif');
+    background: linear-gradient(rgba(37,99,235,0.3), rgba(59,130,246,0.3)), url('assets/gif/home_background.gif');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
