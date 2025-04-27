@@ -59,8 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const skillLevels = {
     'Data Science': 'Advanced',
     'Machine Learning': 'Intermediate',
-    'Python': 'Advanced'
-    // ... add more if needed
+    'Python': 'Advanced',
+    'SQL': 'Beginner',
+    'Pandas': 'Advanced',
+    'NumPy': 'Intermediate',
+    'Scikit-Learn': 'Intermediate',
+    'Streamlit': 'Intermediate',
+    'Tableau': 'Beginner',
+    'Power BI': 'Beginner',
+    'Excel': 'Advanced',
+    'REST APIs': 'Intermediate',
+    'Swift': 'Intermediate',
+    'Firebase': 'Intermediate'
   };
   
   document.querySelectorAll('.skill').forEach((skill, index) => {
