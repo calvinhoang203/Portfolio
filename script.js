@@ -5,7 +5,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(this.getAttribute('href'));
     target.scrollIntoView({
       behavior: 'smooth',
-      block: 'center'
+      block: 'start'
     });
   });
 });
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
-  
+
   // Draw a sample bar chart on the Amazon Sales Analysis project canvas
   const amazonChart = document.getElementById('amazonChart');
   if (amazonChart) {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.fillRect(x, amazonChart.height - barHeight, barWidth, barHeight);
     });
   }
-  
+
   // Additional code for enhanced skill visualization (if needed)
   const skillLevels = {
     'Data Science': 'Advanced',
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Swift': 'Intermediate',
     'Firebase': 'Intermediate'
   };
-  
+
   document.querySelectorAll('.skill').forEach((skill, index) => {
     const skillName = skill.textContent;
     const level = skillLevels[skillName];
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'Intermediate': '66%',
       'Advanced': '100%'
     }[level];
-    
+
     setTimeout(() => {
       skill.innerHTML = `
         <div class="skill-name">${skillName}</div>
