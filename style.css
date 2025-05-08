@@ -434,15 +434,15 @@ nav {
     font-size: 1.25rem;
 }
 
-/* Resume Section */
-#resume {
+/* Experience Section */
+#experience {
     padding: 6rem 2rem;
     background: var(--bg-primary);
     max-width: 1200px;
     margin: 0 auto;
 }
 
-#resume h2 {
+#experience h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
