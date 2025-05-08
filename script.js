@@ -237,52 +237,74 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.nav-menu');
     const navItems = navMenu.querySelectorAll('li');
+    const body = document.body;
     
     // Add index for staggered animations
     navItems.forEach((item, index) => {
         item.style.setProperty('--i', index);
     });
     
-    // Toggle menu when hamburger is clicked
-    hamburger.addEventListener('click', () => {
+    // Toggle menu
+    const toggleMenu = () => {
+        const isOpen = hamburger.classList.contains('active');
+        
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
         
-        // Reset animations when menu is closed
-        if (!navMenu.classList.contains('active')) {
+        // Toggle body scroll
+        body.style.overflow = isOpen ? '' : 'hidden';
+        
+        // Animate menu items
+        if (!isOpen) {
+            navItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 + index * 50);
+            });
+        } else {
             navItems.forEach(item => {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
             });
         }
-    });
+    };
+    
+    // Toggle menu when hamburger is clicked
+    hamburger.addEventListener('click', toggleMenu);
     
     // Close menu when nav links are clicked
     navItems.forEach(item => {
         item.querySelector('a').addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            
-            // Reset animations
-            navItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-            });
+            toggleMenu();
         });
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            
-            // Reset animations
-            navItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-            });
+        const isClickInside = navMenu.contains(e.target) || hamburger.contains(e.target);
+        
+        if (!isClickInside && navMenu.classList.contains('active')) {
+            toggleMenu();
         }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+    
+    // Prevent menu from staying open on window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+        }, 250);
     });
 });
 
