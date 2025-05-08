@@ -442,3 +442,179 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = `${scrolled}%`;
     });
 });
+
+// Contact form handling
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        // Add input animation
+        const formInputs = contactForm.querySelectorAll('input, textarea');
+        formInputs.forEach(input => {
+            // Add focus effect
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    input.parentElement.classList.remove('focused');
+                }
+            });
+            
+            // Add filled class if input has value
+            if (input.value) {
+                input.parentElement.classList.add('filled');
+            }
+            
+            input.addEventListener('input', () => {
+                if (input.value) {
+                    input.parentElement.classList.add('filled');
+                } else {
+                    input.parentElement.classList.remove('filled');
+                }
+            });
+        });
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Disable all form inputs
+            formInputs.forEach(input => input.disabled = true);
+            
+            // Show loading state
+            submitBtn.innerHTML = `
+                <span>Sending...</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="loading-icon">
+                    <line x1="12" y1="2" x2="12" y2="6"></line>
+                    <line x1="12" y1="18" x2="12" y2="22"></line>
+                    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                    <line x1="2" y1="12" x2="6" y2="12"></line>
+                    <line x1="18" y1="12" x2="22" y2="12"></line>
+                    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+                </svg>
+            `;
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: contactForm.querySelector('#name').value,
+                        email: contactForm.querySelector('#email').value,
+                        message: contactForm.querySelector('#message').value
+                    })
+                });
+                
+                const responseData = await response.json();
+                
+                if (response.ok) {
+                    // Show success message
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'form-success';
+                    successMsg.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>Message sent successfully!</span>
+                    `;
+                    
+                    contactForm.insertAdjacentElement('afterend', successMsg);
+                    successMsg.style.display = 'flex';
+                    
+                    // Reset form and classes
+                    contactForm.reset();
+                    formInputs.forEach(input => {
+                        input.parentElement.classList.remove('filled', 'focused');
+                    });
+                    
+                    // Remove success message after 5 seconds
+                    setTimeout(() => {
+                        successMsg.style.opacity = '0';
+                        setTimeout(() => successMsg.remove(), 300);
+                    }, 5000);
+                } else {
+                    throw new Error(responseData.error || 'Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // Show detailed error message
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'form-error';
+                errorMsg.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <span>${error.message || 'Failed to send message. Please try again later.'}</span>
+                `;
+                
+                contactForm.insertAdjacentElement('afterend', errorMsg);
+                errorMsg.style.display = 'flex';
+                
+                // Remove error message after 5 seconds
+                setTimeout(() => {
+                    errorMsg.style.opacity = '0';
+                    setTimeout(() => errorMsg.remove(), 300);
+                }, 5000);
+            } finally {
+                // Re-enable form inputs
+                formInputs.forEach(input => input.disabled = false);
+                
+                // Restore button state
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+});
+
+// Add loading and message animation styles
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    .loading-icon {
+        animation: spin 1s linear infinite;
+    }
+    .form-success,
+    .form-error {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: opacity 0.3s ease;
+    }
+    .form-success svg {
+        stroke: white;
+    }
+    .form-error {
+        background: #EF4444;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        margin-top: 1rem;
+        text-align: center;
+        animation: slideIn 0.3s ease forwards;
+    }
+    .form-error svg {
+        stroke: white;
+    }
+    .focused label {
+        color: var(--accent-color);
+    }
+`;
+document.head.appendChild(style);
