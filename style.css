@@ -263,7 +263,7 @@ nav {
     }
     
     .hamburger-menu {
-        margin-left: 1rem;
+        margin-left: 3rem;
     }
 }
 
@@ -815,7 +815,6 @@ nav {
     animation: pulse 1s infinite;
     background: var(--accent-color-light);
 }
-
 /* Projects Section */
 #projects {
     padding: 6rem 2rem;
@@ -1438,3 +1437,4 @@ body,
         padding: 0.75rem;
     }
 }
+
