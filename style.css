@@ -162,6 +162,7 @@ nav {
         display: flex;
         position: relative;
         z-index: 1002;
+        margin-left: 3rem;
     }
     
     .navbar-container {
@@ -263,7 +264,7 @@ nav {
     }
     
     .hamburger-menu {
-        margin-left: 10rem;
+        margin-left: 1rem;
     }
 }
 
