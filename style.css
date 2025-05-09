@@ -182,7 +182,7 @@ nav {
 
     .dark-mode-toggle {
         order: 3;
-        margin-left: auto;
+        margin-left: 1rem;
     }
 
     nav {
