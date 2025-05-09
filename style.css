@@ -162,7 +162,7 @@ nav {
         display: flex;
         position: relative;
         z-index: 1002;
-        margin-left: 3rem;
+        margin-left: 1rem;
     }
     
     .navbar-container {
