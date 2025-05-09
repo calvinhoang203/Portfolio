@@ -178,7 +178,7 @@ nav {
         left: 50%;
         transform: translateX(-50%);
         z-index: 1002;
-        margin-left: 8rem;
+        margin-left: 5rem;
     }
 
     .dark-mode-toggle {
