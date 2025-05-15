@@ -51,9 +51,15 @@
   <!-- About Section -->
   <section id="about" class="fade-in">
     <h2>About Me</h2>
-    <p>👋 Hi! I'm Hieu, but you can call me Calvin. I'm a senior at UC Davis, working towards a Bachelor's in Statistical Data Science with a Minor in Technology Management.</p>
-    <p>🏫 Throughout my studies, I've developed a strong foundation in data science and machine learning, particularly enjoying hands-on projects where I used Python libraries like NumPy and Pandas to analyze data and create visualizations.</p>
-    <p>🚩 I'm passionate about leveraging data to drive real-world solutions, especially in fields like healthcare and technology, where data-driven innovation has powerful potential.</p>
+    <div class="about-container">
+      <p class="journey-origins">👋 <strong>Origins:</strong> Hi! I'm Hieu, but you can call me Calvin. I grew up with a curiosity for patterns and problem-solving, which naturally led me to the world of data science. My journey began with simple statistical analyses and gradually evolved into a passion for extracting meaningful insights from complex datasets.</p>
+      
+      <p class="journey-academic">🏫 <strong>Academic:</strong> I'm now a senior at UC Davis, working towards a Bachelor's in Statistical Data Science with a Minor in Technology Management. Throughout my studies, I've developed a strong foundation in statistical methods, machine learning algorithms, and data visualization techniques, particularly enjoying hands-on projects where I used Python libraries like NumPy and Pandas.</p>
+      
+      <p class="journey-impact">🚩 <strong>Impact:</strong> I'm passionate about leveraging data to drive real-world solutions, especially in fields like healthcare and technology. My work at ASUCD Pantry has shown me how predictive analytics can directly impact resource allocation and reduce waste, while my research with JFF has helped young professionals navigate career paths through data-driven insights.</p>
+      
+      <p class="journey-beyond">🔭 <strong>Beyond:</strong> Looking forward, I aim to continue bridging the gap between technical analyses and practical applications. I believe the true power of data science lies not just in building models, but in making complex findings accessible and actionable for everyone. I'm excited to contribute to projects that transform data into decisions that make a difference.</p>
+    </div>
   </section>
 
   <!-- Skills Section -->
@@ -202,82 +208,152 @@
     <div class="projects-grid">
       <!-- JFF Research Project -->
       <div class="project">
-        <a href="https://www.jff.org/work/asa-center-for-career-navigation-at-jff/" target="_blank">
-          <div class="project-content">
-            <h3>JFF Youth Advisory Council Research</h3>
-            <span class="project-timeline">Dec 2024 - Present</span>
-            <p class="project-description">I collaborated with JFF's ASA Center for Career Navigation to revolutionize career development tools for young professionals. My research on Gen Z's social media usage patterns led to the development of an innovative online platform that has helped over 1,000 users explore career paths and connect with industry mentors.</p>
-            <div class="project-skills">
-              <span>Research</span>
-              <span>Data Analysis</span>
-              <span>UX Design</span>
-            </div>
+        <div class="project-content">
+          <h3>JFF Youth Advisory Council Research</h3>
+          <span class="project-timeline">Dec 2024 - Present</span>
+          <p class="project-description">I collaborated with JFF's ASA Center for Career Navigation to revolutionize career development tools for young professionals. My research on Gen Z's social media usage patterns led to the development of an innovative online platform that has helped over 1,000 users explore career paths and connect with industry mentors.</p>
+          <div class="project-skills">
+            <span>Research</span>
+            <span>Data Analysis</span>
+            <span>UX Design</span>
           </div>
-        </a>
+          <a href="https://www.jff.org/work/asa-center-for-career-navigation-at-jff/" class="project-view-details" target="_blank">
+            View Details
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          
+          <div class="project-key-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li>Career navigation platform with personalized pathway recommendations</li>
+              <li>Comprehensive research on Gen Z career development preferences</li>
+              <li>Interactive mentorship matching algorithm with industry professionals</li>
+            </ul>
+          </div>
+        </div>
       </div>
   
       <!-- Marvel Universe Explorer -->
       <div class="project">
-        <a href="https://github.com/calvinhoang203/Marvel-Universe-Explorer" target="_blank">
-          <div class="project-content">
-            <h3>Marvel Universe Explorer</h3>
-            <span class="project-timeline">Nov 2024</span>
-            <p class="project-description">I built an interactive web application that brings the Marvel Universe to life through dynamic data visualization. By integrating the Marvel API, I created an engaging platform that allows users to explore character relationships, comic timelines, and creator networks in an intuitive interface.</p>
-            <div class="project-skills">
-              <span>JavaScript</span>
-              <span>API Integration</span>
-              <span>Data Visualization</span>
-            </div>
+        <div class="project-content">
+          <h3>Marvel Universe Explorer</h3>
+          <span class="project-timeline">Nov 2024</span>
+          <p class="project-description">I built an interactive web application that brings the Marvel Universe to life through dynamic data visualization. By integrating the Marvel API, I created an engaging platform that allows users to explore character relationships, comic timelines, and creator networks in an intuitive interface.</p>
+          <div class="project-skills">
+            <span>JavaScript</span>
+            <span>API Integration</span>
+            <span>Data Visualization</span>
           </div>
-        </a>
+          <a href="https://github.com/calvinhoang203/Marvel-Universe-Explorer" class="project-view-details" target="_blank">
+            View Details
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          
+          <div class="project-key-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li>Interactive visualization of Marvel character relationships and connections</li>
+              <li>Real-time data fetching from Marvel API with optimized performance</li>
+              <li>Dynamic filtering by comics, creators, and character attributes</li>
+            </ul>
+          </div>
+        </div>
       </div>
   
       <!-- Health Impact Analysis -->
       <div class="project">
-        <a href="https://github.com/calvinhoang203/Exploring-the-Impact-of-Stroke-Heart-Disease-and-Diabetes-on-Mobility-Challenges" target="_blank">
-          <div class="project-content">
-            <h3>Health Impact Analysis</h3>
-            <span class="project-timeline">Jan 2024 - May 2024</span>
-            <p class="project-description">I conducted a comprehensive analysis of the BRFSS dataset to understand the complex relationships between chronic conditions and mobility challenges. My research revealed significant correlations that have contributed to improved healthcare planning and resource allocation strategies.</p>
-            <div class="project-skills">
-              <span>Python</span>
-              <span>Statistical Analysis</span>
-              <span>Healthcare Data</span>
-            </div>
+        <div class="project-content">
+          <h3>Health Impact Analysis</h3>
+          <span class="project-timeline">Jan 2024 - May 2024</span>
+          <p class="project-description">I conducted a comprehensive analysis of the BRFSS dataset to understand the complex relationships between chronic conditions and mobility challenges. My research revealed significant correlations that have contributed to improved healthcare planning and resource allocation strategies.</p>
+          <div class="project-skills">
+            <span>Python</span>
+            <span>Statistical Analysis</span>
+            <span>Healthcare Data</span>
           </div>
-        </a>
+          <a href="https://github.com/calvinhoang203/Exploring-the-Impact-of-Stroke-Heart-Disease-and-Diabetes-on-Mobility-Challenges" class="project-view-details" target="_blank">
+            View Details
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          
+          <div class="project-key-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li>Multivariate analysis of chronic conditions and mobility challenges</li>
+              <li>Statistical modeling with Python and scikit-learn for predictive analytics</li>
+              <li>Interactive data visualization dashboard with key findings</li>
+            </ul>
+          </div>
+        </div>
       </div>
   
       <!-- Aggie Reminder -->
       <div class="project">
-        <a href="https://devpost.com/software/aggie-reminder" target="_blank">
-          <div class="project-content">
-            <h3>Aggie Reminder</h3>
-            <span class="project-timeline">Apr 2024</span>
-            <p class="project-description">I developed a full-stack web application that streamlines volunteer hour management for student organizations. The system features automated email reminders, secure user authentication, and real-time tracking of volunteer activities, significantly reducing administrative overhead.</p>
-            <div class="project-skills">
-              <span>Full Stack</span>
-              <span>Node.js</span>
-              <span>PostgreSQL</span>
-            </div>
+        <div class="project-content">
+          <h3>Aggie Reminder</h3>
+          <span class="project-timeline">Apr 2024</span>
+          <p class="project-description">I developed a full-stack web application that streamlines volunteer hour management for student organizations. The system features automated email reminders, secure user authentication, and real-time tracking of volunteer activities, significantly reducing administrative overhead.</p>
+          <div class="project-skills">
+            <span>Full Stack</span>
+            <span>Node.js</span>
+            <span>PostgreSQL</span>
           </div>
-        </a>
+          <a href="https://devpost.com/software/aggie-reminder" class="project-view-details" target="_blank">
+            View Details
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          
+          <div class="project-key-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li>Automated email reminder system with customizable templates</li>
+              <li>Secure authentication and role-based access control</li>
+              <li>Real-time volunteer hour tracking with statistical reports</li>
+            </ul>
+          </div>
+        </div>
       </div>
   
       <!-- Amazon Sales Analysis -->
       <div class="project">
-        <a href="https://github.com/calvinhoang203/Analysis-of-Amazon-Sales-Trend" target="_blank">
-          <div class="project-content">
-            <h3>Amazon Sales Analysis</h3>
-            <span class="project-timeline">Dec 2023 - Jan 2024</span>
-            <p class="project-description">I performed an in-depth analysis of Amazon's sales data, uncovering key trends in customer behavior and product performance. My findings led to actionable insights that could optimize inventory management and marketing strategies.</p>
-            <div class="project-skills">
-              <span>Data Analysis</span>
-              <span>Python</span>
-              <span>Business Intelligence</span>
-            </div>
+        <div class="project-content">
+          <h3>Amazon Sales Analysis</h3>
+          <span class="project-timeline">Dec 2023 - Jan 2024</span>
+          <p class="project-description">I performed an in-depth analysis of Amazon's sales data, uncovering key trends in customer behavior and product performance. My findings led to actionable insights that could optimize inventory management and marketing strategies.</p>
+          <div class="project-skills">
+            <span>Data Analysis</span>
+            <span>Python</span>
+            <span>Business Intelligence</span>
           </div>
-        </a>
+          <a href="https://github.com/calvinhoang203/Analysis-of-Amazon-Sales-Trend" class="project-view-details" target="_blank">
+            View Details
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          
+          <div class="project-key-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li>Sales pattern analysis with seasonality and trend decomposition</li>
+              <li>Customer segmentation analysis for targeted marketing strategies</li>
+              <li>Inventory optimization recommendations based on data insights</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
