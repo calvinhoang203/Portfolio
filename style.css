@@ -760,11 +760,19 @@ nav {
 }
 
 .certification-item {
+    display: block;
     background: rgba(255, 255, 255, 0.1);
     padding: 1rem 1.5rem;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 1rem;
+}
+
+.certification-item:last-child {
+    margin-bottom: 0;
 }
 
 .certification-item:hover {
@@ -772,6 +780,7 @@ nav {
     box-shadow: var(--shadow-sm);
     border-color: var(--accent-color);
     background: rgba(59, 130, 246, 0.2);
+    text-decoration: none;
 }
 
 .certification-item h5 {
@@ -779,6 +788,11 @@ nav {
     font-size: 1rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.certification-item:hover h5 {
+    color: #fff;
 }
 
 .certification-date {
@@ -786,6 +800,11 @@ nav {
     font-size: 0.9rem;
     margin: 0;
     font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.certification-item:hover .certification-date {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Dark mode adjustments */
@@ -799,6 +818,12 @@ nav {
 
 [data-theme="dark"] .certification-item {
     background: var(--bg-primary);
+    color: inherit;
+}
+
+[data-theme="dark"] .certification-item:hover {
+    background: rgba(59, 130, 246, 0.2);
+    text-decoration: none;
 }
 
 /* Mobile adjustments */
