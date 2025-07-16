@@ -373,7 +373,7 @@ nav {
 /* About Section */
 #about {
     background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.85)),
-                url('assets/images/about-bg.jpg') center/cover no-repeat fixed;
+                url('assets/images/backgrounds/data-code-bg.jpg') center/cover no-repeat fixed;
     padding: 6rem 2rem;
     position: relative;
 }
@@ -713,12 +713,58 @@ nav {
     background: rgba(59, 130, 246, 0.3);
 }
 
+/* Certification Section Styling */
+.certification-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.certification-info h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.certification-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.certification-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.certification-item h5 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.certification-date {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
+}
+
 /* Dark mode adjustments */
 [data-theme="dark"] .education-card {
     background: var(--bg-secondary);
 }
 
 [data-theme="dark"] .coursework-grid span {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .certification-item {
     background: var(--bg-primary);
 }
 
