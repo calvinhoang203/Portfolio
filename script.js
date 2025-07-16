@@ -130,66 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     appearOnScroll.observe(fader);
   });
 
-  // Enhanced skill visualization with improved animations
-  const skillLevels = {
-    'Data Science': 'Advanced',
-    'Machine Learning': 'Intermediate',
-    'Python': 'Advanced',
-    'SQL': 'Beginner',
-    'Pandas': 'Advanced',
-    'NumPy': 'Intermediate',
-    'Scikit-Learn': 'Intermediate',
-    'Streamlit': 'Intermediate',
-    'Tableau': 'Beginner',
-    'Power BI': 'Beginner',
-    'Excel': 'Advanced',
-    'REST APIs': 'Intermediate',
-    'Swift': 'Intermediate',
-    'Firebase': 'Intermediate'
-  };
-
-  document.querySelectorAll('.skill').forEach((skill, index) => {
-    const skillName = skill.textContent;
-    const level = skillLevels[skillName];
-    const levelPercentage = {
-      'Beginner': '33%',
-      'Intermediate': '66%',
-      'Advanced': '100%'
-    }[level];
-
-    // Set data attribute for styling
-    skill.setAttribute('data-level', level);
-
-    // Create skill content with improved structure
-    setTimeout(() => {
-      skill.innerHTML = `
-        <div class="skill-name">${skillName}</div>
-        <div class="skill-level">${level}</div>
-        <div class="skill-bar">
-            <div class="skill-progress" style="width: 0%"></div>
-        </div>
-      `;
-
-      // Animate progress bar with slight delay for visual appeal
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          skill.querySelector('.skill-progress').style.width = levelPercentage;
-        }, 100);
-      });
-    }, index * 100);
-
-    // Add hover interaction
-    skill.addEventListener('mouseenter', () => {
-      skill.style.transform = 'translateY(-5px)';
-      skill.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
-    });
-
-    skill.addEventListener('mouseleave', () => {
-      skill.style.transform = 'translateY(0)';
-      skill.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
-    });
-  });
-
   // Back to top button
   const backToTop = document.createElement('button');
   backToTop.classList.add('back-to-top');
