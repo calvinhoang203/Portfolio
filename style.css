@@ -28,16 +28,18 @@
     );
 }
 
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+}
+
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
     min-height: 100vh;
-}
-
-html {
-    background-color: var(--bg-primary);
+    overflow-x: hidden; /* Prevent horizontal scroll issues */
 }
 
 /* Smooth transitions */
@@ -288,7 +290,7 @@ nav {
 
 /* Home Section */
 #home {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.8)),
                 url('assets/images/home-bg.jpg') center/cover no-repeat;
     min-height: 100vh;
     display: flex;
@@ -298,13 +300,14 @@ nav {
     padding: 8rem 2rem;
     color: white;
     position: relative;
+    background-attachment: scroll; /* Changed from fixed for better mobile performance */
 }
 
 #home::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.1); /* Reduced opacity for better image visibility */
     z-index: 1;
 }
 
@@ -372,10 +375,11 @@ nav {
 
 /* About Section */
 #about {
-    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.85)),
-                url('assets/images/backgrounds/data-code-bg.jpg') center/cover no-repeat fixed;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(241, 245, 249, 0.9)),
+                url('assets/images/backgrounds/data-code-bg.jpg') center/cover no-repeat;
     padding: 6rem 2rem;
     position: relative;
+    background-attachment: scroll; /* Changed from fixed */
 }
 
 #about h2 {
@@ -470,7 +474,29 @@ nav {
 /* Skills Section */
 #skills {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0); /* Simplified gradient */
+    position: relative;
+}
+
+/* Add subtle pattern overlay for skills */
+#skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+#skills h2,
+.skills-container {
+    position: relative;
+    z-index: 2;
 }
 
 #skills h2 {
@@ -623,12 +649,13 @@ nav {
 /* Enhanced Education Section */
 #education {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #1a2639, #253649);
+    background: linear-gradient(135deg, #1e293b, #334155); /* Simplified gradient */
     text-align: center;
     position: relative;
     color: #fff;
 }
 
+/* Improved pattern overlay */
 #education::before {
     content: '';
     position: absolute;
@@ -636,8 +663,13 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGcgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEiPgogICAgICA8cGF0aCBkPSJNMzAgMzBjMCA4LjI4NC02LjcxNiAxNS0xNSAxNS04LjI4NCAwLTE1LTYuNzE2LTE1LTE1IDAtOC4yODQgNi43MTYtMTUgMTUtMTUgOC4yODQgMCAxNSA2LjcxNiAxNSAxNXptMzAgMGMwIDguMjg0LTYuNzE2IDE1LTE1IDE1cy0xNS02LjcxNi0xNS0xNSA2LjcxNi0xNSAxNS0xNSAxNSA2LjcxNiAxNSAxNXptLTMwIDMwYzAgOC4yODQtNi43MTYgMTUtMTUgMTUtOC4yODQgMC0xNS02LjcxNi0xNS0xNSAwLTguMjg0IDYuNzE2LTE1IDE1LTE1IDguMjg0IDAgMTUgNi43MTYgMTUgMTV6bTMwIDBjMCA4LjI4NC02LjcxNiAxNS0xNSAxNXMtMTUtNi43MTYtMTUtMTUgNi43MTYtMTUgMTUtMTUgMTUgNi43MTYgMTUgMTV6TTMwIDYwYzAgOC4yODQtNi43MTYgMTUtMTUgMTUtOC4yODQgMC0xNS02LjcxNi0xNS0xNSAwLTguMjg0IDYuNzE2LTE1IDE1LTE1IDguMjg0IDAgMTUgNi43MTYgMTUgMTV6bTMwIDBjMCA4LjI4NC02LjcxNiAxNS0xNSAxNXMtMTUtNi43MTYtMTUtMTUgNi43MTYtMTUgMTUtMTUgMTUgNi43MTYgMTUgMTV6Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=');
-    opacity: 0.3;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%);
+    background-size: 100px 100px, 100px 100px, 60px 60px, 60px 60px;
+    opacity: 0.6;
     z-index: 1;
 }
 
@@ -851,9 +883,29 @@ nav {
 /* Experience Section */
 #experience {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #e5e7eb, #d1d5db);
-    max-width: 1200px;
-    margin: 0 auto;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0); /* Consistent with skills */
+    position: relative;
+}
+
+/* Add subtle pattern */
+#experience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 30% 70%, rgba(37, 99, 235, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+#experience h2,
+.timeline {
+    position: relative;
+    z-index: 2;
 }
 
 #experience h2 {
@@ -1017,11 +1069,35 @@ nav {
 /* Projects Section */
 #projects {
     padding: 6rem 2rem;
-    background: linear-gradient(rgba(18, 24, 38, 0.95), rgba(10, 15, 30, 0.9)),
-                url('assets/images/projects-bg.jpg') center/cover no-repeat fixed;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9)),
+                url('assets/images/projects-bg.jpg') center/cover no-repeat;
     text-align: center;
     color: #fff;
     position: relative;
+    background-attachment: scroll; /* Changed from fixed */
+}
+
+/* Improved overlay pattern */
+#projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%);
+    background-size: 200px 200px, 200px 200px, 40px 40px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#projects h2,
+.projects-grid {
+    position: relative;
+    z-index: 2;
 }
 
 #projects h2 {
@@ -1184,11 +1260,12 @@ nav {
 /* Contact Section */
 #contact {
     padding: 6rem 2rem;
-    background: rgba(37, 99, 235, 0.1);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.05)); /* Subtle gradient */
     text-align: center;
     position: relative;
 }
 
+/* Improved subtle pattern */
 #contact::before {
     content: '';
     position: absolute;
@@ -1196,8 +1273,19 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(59,130,246,0.05));
-    z-index: 0;
+    background-image: 
+        radial-gradient(circle at 40% 60%, rgba(37, 99, 235, 0.06) 0%, transparent 70%),
+        radial-gradient(circle at 60% 40%, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+#contact h2,
+.contact-message,
+.contact-form-container,
+.contact-icons {
+    position: relative;
+    z-index: 2;
 }
 
 #contact h2 {
@@ -1384,6 +1472,24 @@ body,
                 border-color 0.3s ease,
                 box-shadow 0.3s ease,
                 transform 0.3s ease;
+}
+
+/* Performance optimizations for sections with backgrounds */
+#home,
+#about,
+#projects {
+    will-change: transform; /* Optimize for animations/transforms */
+    transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Optimize background patterns for performance */
+#skills::before,
+#education::before,
+#experience::before,
+#projects::before,
+#contact::before {
+    will-change: opacity;
+    transform: translateZ(0);
 }
 
 /* Contact Form Styles */
@@ -1585,6 +1691,81 @@ body,
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-header h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Skills mobile responsiveness */
+    .skills-container {
+        gap: 2rem;
+    }
+
+    .skill-category {
+        padding: 1.5rem;
+    }
+
+    .skill-category h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .skill-group {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .skill {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile background optimizations */
+@media (max-width: 768px) {
+    /* Reduce background complexity on mobile for performance */
+    #home {
+        background-size: cover;
+        background-position: center;
+    }
+    
+    #about {
+        background-size: cover;
+        background-position: center;
+    }
+    
+    #projects {
+        background-size: cover;
+        background-position: center;
+    }
+    
+    /* Simplify pattern overlays on mobile */
+    #skills::before,
+    #education::before,
+    #experience::before,
+    #projects::before,
+    #contact::before {
+        opacity: 0.3; /* Reduce pattern intensity on mobile */
+        background-size: 80px 80px, 80px 80px, 40px 40px, 40px 40px; /* Smaller patterns */
+    }
+    
+    /* Ensure text readability on mobile */
+    .intro {
+        background: rgba(0,0,0,0.6); /* Slightly darker for better text contrast */
+        backdrop-filter: blur(5px); /* Reduced blur for performance */
+    }
+    
+    .timeline-content {
+        padding: 1.25rem;
+    }
+
     .contact-form {
         padding: 1.5rem;
     }
